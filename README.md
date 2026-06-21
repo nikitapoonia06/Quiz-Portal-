@@ -4,6 +4,10 @@ QuizSphere is a premium, high-performance, and visually gorgeous SaaS-inspired e
 
 ---
 
+- **Live URL**: https://quiz-portal-production.up.railway.app/
+
+---
+
 ## 🚀 Key Features
 
 *   **Premium SaaS Aesthetics**: Responsive glassmorphism cards, micro-interactions, custom scrollbars, dark/light theme switching, and smooth dynamic layouts.
@@ -77,6 +81,12 @@ quiz-portal/
                     └── service/
                         └── QuizServiceTest.java        # Unit & Integration tests
 ```
+
+---
+
+## Deployment
+This application is deployed on Railway and is live at:
+- **Live URL**: https://quiz-portal-production.up.railway.app/
 
 ---
 
