@@ -1,0 +1,184 @@
+/* Custom styles and premium glassmorphism classes */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --primary-color: #4F46E5;
+  --primary-hover: #4338CA;
+  --secondary-color: #7C3AED;
+  --accent-color: #06B6D4;
+  --success-color: #10B981;
+  --warning-color: #F59E0B;
+  --error-color: #EF4444;
+  
+  /* Light Theme Variables */
+  --bg-gradient-start: #EEF2F6;
+  --bg-gradient-end: #E2E8F0;
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --card-border: rgba(255, 255, 255, 0.5);
+  --text-main: #1E293B;
+  --text-muted: #64748B;
+  --shadow-color: rgba(148, 163, 184, 0.15);
+  --sidebar-bg: rgba(255, 255, 255, 0.4);
+}
+
+[data-theme="dark"] {
+  /* Dark Theme Variables */
+  --bg-gradient-start: #0F172A;
+  --bg-gradient-end: #020617;
+  --card-bg: rgba(15, 23, 42, 0.6);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --text-main: #F8FAFC;
+  --text-muted: #94A3B8;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --sidebar-bg: rgba(15, 23, 42, 0.3);
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  color: var(--text-main);
+  min-height: 100vh;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Glassmorphism utility classes */
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 8px 32px 0 var(--shadow-color);
+  border-radius: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px 0 var(--shadow-color);
+}
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--card-border);
+  color: var(--text-main);
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.glass-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.25);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
+/* Animated Quiz Transitions */
+.view-section {
+  display: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.view-section.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Option Button Animations */
+.option-btn {
+  border: 2px solid var(--card-border);
+  background: rgba(255, 255, 255, 0.03);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.option-btn:hover:not(:disabled) {
+  border-color: var(--primary-color);
+  background: rgba(79, 70, 229, 0.08);
+  transform: scale(1.01);
+}
+
+.option-btn.selected {
+  border-color: var(--primary-color);
+  background: rgba(79, 70, 229, 0.15);
+  box-shadow: 0 0 15px rgba(79, 70, 229, 0.2);
+}
+
+/* Question Navigator Grid Buttons */
+.nav-grid-btn {
+  transition: all 0.2s ease;
+}
+
+.nav-grid-btn.flagged {
+  border-color: var(--warning-color);
+  background-color: rgba(245, 158, 11, 0.1);
+}
+
+.nav-grid-btn.answered {
+  border-color: var(--success-color);
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+/* Radial Progress Bar */
+.radial-progress {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--primary-color) 0%,
+    rgba(255, 255, 255, 0.1) 0%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radial-progress-inner {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: var(--bg-gradient-start);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+/* Custom Micro-interactions */
+.pulse-light {
+  animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(79, 70, 229, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(79, 70, 229, 0);
+  }
+}
